@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2A676A">
+    <link rel="apple-touch-icon" href="img/app-logo-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <title>Лермонтов кофе | Акция</title>
+</head>
+<body>
+  <header>
+  
+</header>
+<main>
+    <div class="container">
+      <section class="main-info">
+        <h1>
+            Лермонтов кофе
+        </h1>
+        <h3>
+            Здесь ты можешь оставить свой отзыв и заработать за это чашку кофе! <br><br>
+            Всё что тебе нужно сделать - это заполнить форму и отправить отзыв нам.
+        </h3>
+        <h4>
+          Это займет не более 5-ти минут! 
+        </h4>
+        <div class="bg">    Начнем!    </div>       
+        <h5>
+          1. Сгенерируй уникальный промо-код.
+        </h5>
+          <button  class="btn-1" onclick="generatePassword()">Создать код</button>
+          <!--выводим сгенерированный пароль -->
+          <p>Ваш пароль:</p>
+          <div id="pass_text" style="margin-bottom: 1rem; font-weight: bold"></div>
+          <form action="php/order.php" method="POST">
+            <h5>2. Заполни все формы и оставь свой отзыв о работе бариста и качестве напитков.</h5>
+            <div class="row">
+              <div class="col">
+                <label class="label-str" for="name">Ваше имя: </label>
+                <input type="text" name="Name" id="name" required>
+              </div>
+              <div class="col">
+                <label class="label-str" for="tel">Ваш номер телефона: </label>
+                <input type="tel" name="Phone" id="tel" minlength="11" pattern="[0-9]{,11}" required>
+              </div>
+              <div class="col">
+                <label class="label-str" for="code">Только что полученный промо-код: </label>
+                <input class="promocode" type="text" name="PromoCode" id="code" required>
+              </div>
+              <div class="col col-rating">
+                <label for="">Оцените пожалуйста доброжелательность бариста: </label>
+                <div class="rating">
+                  <input type="radio" id="star5" name="GoodnessRating" value="5" required /><label for="star5" title="Замечательно!">5 </label>
+                  <input type="radio" id="star4" name="GoodnessRating" value="4" /><label for="star4" title="Хорошо">4 </label>
+                  <input type="radio" id="star3" name="GoodnessRating" value="3" /><label for="star3" title="Нормально">3 </label>
+                  <input type="radio" id="star2" name="GoodnessRating" value="2" /><label for="star2" title="Плохо">2 </label>
+                  <input type="radio" id="star1" name="GoodnessRating" value="1" /><label for="star1" title="Ужасно">1 </label>
+                </div>
+              </div>
+              <div class="col col-rating">
+                <label for="">Оцените пожалуйста скорость обслуживания: </label>
+                <div class="rating">
+                  <input type="radio" id="star52" name="SpeedRating" value="5" required /><label for="star52" title="Замечательно!">5 </label>
+                  <input type="radio" id="star42" name="SpeedRating" value="4" /><label for="star42" title="Хорошо">4 </label>
+                  <input type="radio" id="star32" name="SpeedRating" value="3" /><label for="star32" title="Нормально">3 </label>
+                  <input type="radio" id="star22" name="SpeedRating" value="2" /><label for="star22" title="Плохо">2 </label>
+                  <input type="radio" id="star12" name="SpeedRating" value="1" /><label for="star12" title="Ужасно">1 </label>
+                </div>
+              </div>
+              <div class="col col-rating">
+                <label for="">Оцените пожалуйста качество продукции: </label>
+                <div class="rating">
+                  <input type="radio" id="star53" name="ProductQuality" value="5" required /><label for="star53" title="Замечательно!">5 </label>
+                  <input type="radio" id="star43" name="ProductQuality" value="4" /><label for="star43" title="Хорошо">4 </label>
+                  <input type="radio" id="star33" name="ProductQuality" value="3" /><label for="star33" title="Нормально">3 </label>
+                  <input type="radio" id="star23" name="ProductQuality" value="2" /><label for="star23" title="Плохо">2 </label>
+                  <input type="radio" id="star13" name="ProductQuality" value="1" /><label for="star13" title="Ужасно">1 </label>
+                </div>
+              </div>
+              <div class="col col-rating">
+                <label for="">Оцените пожалуйста чистоту заведения: </label>
+                <div class="rating">
+                  <input type="radio" id="star54" name="Сleanliness" value="5" required /><label for="star54" title="Замечательно!">5 </label>
+                  <input type="radio" id="star44" name="Сleanliness" value="4" /><label for="star44" title="Хорошо">4 </label>
+                  <input type="radio" id="star34" name="Сleanliness" value="3" /><label for="star34" title="Нормально">3 </label>
+                  <input type="radio" id="star24" name="Сleanliness" value="2" /><label for="star24" title="Плохо">2 </label>
+                  <input type="radio" id="star14" name="Сleanliness" value="1" /><label for="star14" title="Ужасно">1 </label>
+                </div>
+              </div>
+              <div class="col">
+                <label class="label-str" for="review">Ваш отзыв: </label>
+                <textarea name="Review" id="review" cols="30" rows="10"></textarea>
+                <!--<input type="text" name="Review" id="review">-->
+              </div>
+              <div class="col">
+                <input style="display: inline; height: auto;" type="checkbox" name="" id="agree" required>
+                <label style="display: inline;" class="label-str" for="agree"> Я согласен с <a href="policy.html">политикой обработки персональных данных</a>.</label>
+              </div>              
+            </div>         
+            <h5>3. Нажми кнопку "отправить" и приходи за своим кофе!</h5>
+            <div class="gradient-wrap">
+              <input class="gradient-btn" type="submit" name="Отправить">
+            </div>
+          </form>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <article class="footer">
+      <p>© Лермонтов кофе | Все права защищены</p>
+      <p>Created by <a target="_blank" href="https://www.instagram.com/shablysoft">ShablySoft</a></p>
+    </article>
+  </footer>
+  <script>
+    function generatePassword() {
+  var length = 8,
+    charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+    retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
+    document.getElementById('pass_text').innerHTML = retVal;
+  }
+  return retVal;
+}
+
+  </script>
+  <script>
+       if ('serviceWorker' in navigator) {
+           window.addEventListener('load', function() {
+               navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                   // Registration was successful
+               console.log('ServiceWorker registration successful with scope: ', registration.scope);
+             }, function(err) {
+               // registration failed :(
+               console.log('ServiceWorker registration failed: ', err);
+             }).catch(function(err) {
+               console.log(err)
+             });
+           });
+         } else {
+           console.log('service worker is not supported');
+         }
+   </script>
+   <script>
+   window.addEventListener('appinstalled', (evt) => {
+       fetch((isIos), {
+           method: 'GET',
+           credentials: 'include',
+       });
+   });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'peace_sansregular';
+    src: url('../fonts/ofont.ru_peace_1-webfont.woff2') format('woff2'),
+         url('../fonts/ofont.ru_peace_1-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    background: #2a676ad5;
+}
+
+body {
+    font-family: 'peace_sansregular';
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: normal;
+}
+
+main {
+    background: url("../img/bg.png");
+    background-position: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    mask-repeat: repeat-x;
+}
+
+/* Main page for users */
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.nav-item {    
+    padding: 5px;
+    border-radius: 60px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 0.1px;
+    box-shadow: 0 5px 20px rgba(0,0,0, .5);
+    background: linear-gradient(to left, #0a43acb6, #a20544bd);
+}
+
+.nav-item a{
+    text-align: center;
+    color: #fff;
+    transition: .5s;
+    background-color: linear-gradient(to left, #1366ff, #ff0b6d);
+}
+
+.container {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+/* Main info for users */
+
+.main-info {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.bg {
+    width: -webkit-fill-available;
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: xx-large;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-style: oblique;
+}
+
+.btn-1{
+    color: lavender;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 40px;
+    border-width: 1px;
+    background: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.693);
+}
+
+.row {
+    padding: 10px;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.693);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+input {
+    border-style: inset;
+    border-radius: 30px;
+    height: 30px;
+    text-align: center;
+    background: none;
+    box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.693);
+}
+
+input::placeholder {
+    color: lavender;
+    
+}
+
+.col {
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(102, 76, 76, 0.015);
+}
+
+.gradient-wrap button {
+    color: lavender;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    background: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.693);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 25px;
+    background: rgba(32 175 147 / 30%);
+    
+    
+}
+
+.footer a, p {
+    text-shadow: lightgreen;
+    color: lightcyan;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.forAdmin {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+figure {
+    text-align: center;
+}
+
+.load img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.gradient-wrap {
+    margin-bottom: 20px;
+}
+
+.gradient-btn {
+    color: lavender;
+    border-style: inset;
+    border-radius: 30px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.693);
+}
+
+/* rating */
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    margin-right: 5px;
+    float:right;
+    width:1.1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+legend {
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.col-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Need to move evrthng below */
+
+textarea {
+    overflow: scroll;
+    border-radius: 30px;
+    text-align: center;
+    background: none;
+    box-shadow: inset 0 5px 20px rgb(0 0 0 / 69%);
+    border-width: 2px;
+    border-style: inset;
+}
+
+.authorized {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.policy {
+    color: lavender;
+}
+
+.big-bg {
+    width: -webkit-fill-available;
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: xx-large;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-style: oblique;
+}
+
+@media screen and (max-width: 360px) {
+	.col {
+		padding: 10px;
+	}
+	
+	.row {
+		padding: 0;
+		width: 360px;
+	}
+}
