@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalbe=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="theme-color" content="#2A676A">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+    <link rel="icon" type="image/png" href="img/icon-32.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>Поиск заказов</title>
+    <script>function send_handle(){
+
+    let num=document.getElementById("number").value;
+    let text=document.getElementById("text").value;
+    var win = window.open(`https://wa.me/${num}?text=${text}`, '_blank');
+   win.focus();
+  }</script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+      active: false,
+      animate: 200
+    });
+  } );
+  </script>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h1>Поиск клиентов</h1>   
+      <div id="accordion">
+        <h3>Инструкция</h3>
+        <div>
+          <p>1. Впиши номер получателя. </p>
+          <p>2. Введи текст сообщения или оставь исходный.</p>
+          <p>3. Нажимая кнопку отправить - произойдет переход в WhatsApp и останется только отправить готовое сообщение</p>
+        </div>
+        <h3>Оснойной текст сообщения</h3>
+        <div>
+          <p>Здравствуйте! Меня зовут Ангелина. Я соавтор команды художников, мы занимаемся росписью фасадов и внутренних помещений в разном стиле и разной сложности.  
+            Мы хотим предложить вам сотрудничество. В качестве благодарности мы хотели бы оплатить 10% от гонорара с заказа. Ознакомиться с нашими работами вы можете по ссылке: необходимо указать ссылку на портфолио, если вас заинтересовало предложение - готовы к сотрудничеству.</p>
+        </div>
+      </div>
+      <div class="form">
+        <h5>Номер должен быть введен в формате: 799912312312 not <strike>+7 (999) 12312312 </strike></h5>
+        <input id="number" type="tel" placeholder="Номер телефона" >
+        <label for="text" style="margin-bottom: 10px;">Текст сообщения</label>
+        <textarea name="text" id="text" rows="15" cols="40">Поле для ввода произвольного текста. Текст можно менять по своему желанию, он будет всегда сохраняться.</textarea>
+        <button onclick="send_handle()">Отправить</button>
+      </div>
+    </div>
+  </main>
+
+<script>
+       if ('serviceWorker' in navigator) {
+           window.addEventListener('load', function() {
+               navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                   // Registration was successful
+               console.log('ServiceWorker registration successful with scope: ', registration.scope);
+             }, function(err) {
+               // registration failed :(
+               console.log('ServiceWorker registration failed: ', err);
+             }).catch(function(err) {
+               console.log(err)
+             });
+           });
+         } else {
+           console.log('service worker is not supported');
+         }
+   </script>
+<script>
+   const isIos = () => {
+           const userAgent = window.navigator.userAgent.toLowerCase();
+           return /iphone|ipad|ipod/.test( userAgent );
+       };
+       // Проверяем, открыто ли приложение отдельно или в браузере
+       const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+
+
+       // Если приложение открыто на iOS и в браузере, то предлагаем установить
+       if (isIos() && !isInStandaloneMode()) {
+           this.setState({ isShown: true }); // На примере React
+       }
+ window.addEventListener('appinstalled', (evt) => {
+       fetch((isIos), {
+           method: 'GET',
+           credentials: 'include',
+       });
+   });
+</script>
+<script>
+	let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
+</script>
+</body>
+</html>
