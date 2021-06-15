@@ -1,0 +1,156 @@
+h1 {
+  color: black;
+  transition: none;
+  text-align: unset;
+  padding: unset;
+  background: unset;
+  display: inline-block;
+  margin-right: 0;
+  cursor: unset;
+  font-size: 40px;
+  letter-spacing: 0;
+  font-weight: lighter;
+}
+
+h1:hover {
+  padding: 0;
+  box-shadow: unset;
+  transform: unset;
+}
+
+h2 {
+  margin-top: 80px;
+  margin-bottom: 90px;
+  text-align: start;
+  font-size: 60px;
+  margin-left: 5%;
+}
+
+a.menu__button.active {
+	background-image: url(../img/icons/graduation.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position-x: 5%;
+}
+
+.container {
+  cursor: unset;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.right-part {
+  height: auto;
+}
+
+.description {
+  background: #6d7fe8;
+  padding: 15px;
+  margin-bottom: 50px;
+}
+
+.description p {
+  display: inline;
+  font-size: 30px;
+  letter-spacing: 0.1px;
+  font-weight: 100;
+}
+
+.courses__card {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px #846ee5 dotted;
+  border-radius: 25px;
+  flex-direction: column;
+  margin: 30px;
+  padding: 20px;
+  transition: all ease 0.3s;
+}
+
+.courses__card:hover {
+  box-shadow: -3px 5px 9px gray;
+}
+
+.courses__card a {
+  text-decoration: none !important;
+  text-align: center;
+  color: #2b2b2b;
+  font-size: 25px;
+  transition: all ease 0.4s;
+  padding: 10px;
+  background: antiquewhite;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px;
+}
+
+.courses__card a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.itprogger__block {
+  font-size: 30px;
+  font-weight: 100;
+  margin-left: 25px;
+}
+
+.itprogger img {
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .itprogger img {
+    width: 500px;
+    height: inherit;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .disactivate {
+    display: none;
+  }
+
+  .description {
+    background: unset;
+  }
+
+  .courses__card {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 50px;
+  }
+
+  .courses__card img {
+    width: auto;
+    height: inherit;
+  }
+
+  .courses__card a {
+    font-size: 20px;
+    width: max-content;
+  }
+
+  .itprogger img {
+    width: 302px;
+    height: inherit;
+    margin-bottom: 30px;
+  }
+  
+  a.menu__button.active {
+  	background-image: unset;
+  }
+}
